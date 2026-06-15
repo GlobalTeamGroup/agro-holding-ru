@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AGRO HOLDING — Фермерское Хозяйство</title>
+  <meta name="description" content="AGRO HOLDING — аграрная группа полного цикла с 1997 года. Растениеводство, животноводство, переработка. 30 000 га, 850 работников." />
+  <meta name="keywords" content="агрохолдинг, фермерское хозяйство, растениеводство, животноводство, переработка, агробизнес" />
+  <meta property="og:title" content="AGRO HOLDING — Фермерское Хозяйство" />
+  <meta property="og:description" content="Аграрная группа полного цикла с 1997 года. 30 000 га, 850 работников." />
+  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:url" content="https://agroholding.ru" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">AGRO<span class="accent-green">HOLDING</span></div>
+      <div class="progress-track"><div id="progress-bar"></div></div>
+      <div class="loader-text">Загрузка...</div>
+    </div>
+  </div>
+
+  <canvas id="gl-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
+  <div class="grain-overlay"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="images/logo.png" alt="AGRO HOLDING" onerror="this.style.display='none'" />
+        <span>AGRO<span class="accent-green">HOLDING</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services" class="nav-link">Направления</a></li>
+        <li><a href="#portfolio" class="nav-link">Результаты</a></li>
+        <li><a href="#process" class="nav-link">Цикл</a></li>
+        <li><a href="#about" class="nav-link">О нас</a></li>
+        <li><a href="#contact" class="nav-link">Партнёрство</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" id="nav-drawer" hidden>
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <div class="drawer-panel">
+      <button class="drawer-close" id="drawer-close" aria-label="Закрыть">✕</button>
+      <ul>
+        <li><a href="#services" class="drawer-link">Направления</a></li>
+        <li><a href="#portfolio" class="drawer-link">Результаты</a></li>
+        <li><a href="#process" class="drawer-link">Цикл</a></li>
+        <li><a href="#about" class="drawer-link">О нас</a></li>
+        <li><a href="#contact" class="drawer-link">Партнёрство</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="ui-layer">
+    <div class="stage">
+
+      <!-- SECTION 0: HERO -->
+      <section class="page is-active" data-index="0" id="hero">
+        <div class="hero-content">
+          <div class="hero-badge reveal-3d">С 1997 ГОДА</div>
+          <h1 class="hero-title reveal-3d">AGRO<br/><span class="accent-green">HOLDING</span></h1>
+          <p class="hero-subtitle reveal-3d">Сельское хозяйство нового поколения</p>
+          <p class="hero-desc reveal-3d">Растениеводство, животноводство, переработка.<br/>От поля до прилавка.</p>
+          <div class="hero-btns reveal-3d">
+            <a href="#services" class="btn-primary">Наша продукция</a>
+            <a href="#contact" class="btn-outline">Партнёрство</a>
+          </div>
+          <div class="hero-facts reveal-3d">
+            <div class="fact-item"><span class="fact-num">30 000</span><span class="fact-label">гектаров</span></div>
+            <div class="fact-item"><span class="fact-num">850+</span><span class="fact-label">работников</span></div>
+            <div class="fact-item"><span class="fact-num">25 лет</span><span class="fact-label">на рынке</span></div>
+          </div>
+        </div>
+        <div class="scroll-hint reveal-3d"><span>↓</span></div>
+      </section>
+
+      <!-- SECTION 1: НАПРАВЛЕНИЯ -->
+      <section class="page" data-index="1" id="services">
+        <div class="section-content">
+          <div class="section-header reveal-3d">
+            <h2 class="section-title">НАПРАВЛЕНИЯ</h2>
+            <p class="section-subtitle">Полный аграрный цикл</p>
+          </div>
+          <div class="cards-grid reveal-3d">
+            <div class="card">
+              <div class="card-icon">🌾</div>
+              <h3 class="card-title">Растениеводство</h3>
+              <p class="card-text">Пшеница, кукуруза, подсолнечник — 30 000 га пашни</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🐄</div>
+              <h3 class="card-title">Животноводство</h3>
+              <p class="card-text">Мясной и молочный крупный рогатый скот</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🏗️</div>
+              <h3 class="card-title">Теплицы</h3>
+              <p class="card-text">Гидропоника, овощи, фрукты круглый год</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🏭</div>
+              <h3 class="card-title">Переработка</h3>
+              <p class="card-text">Зерновые, молочные, овощные продукты под собственным брендом</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: РЕЗУЛЬТАТЫ -->
+      <section class="page" data-index="2" id="portfolio">
+        <div class="section-content">
+          <div class="section-header reveal-3d">
+            <h2 class="section-title">НАШИ РЕЗУЛЬТАТЫ</h2>
+            <p class="section-subtitle">Цифры, которым доверяют</p>
+          </div>
+          <div class="results-grid reveal-3d">
+            <div class="result-card">
+              <div class="result-num accent-gold">480 000</div>
+              <div class="result-label">тонн пшеницы урожай 2023</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num accent-green">12 га</div>
+              <div class="result-label">тепличных комплексов гидропоники</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num accent-gold">2 400</div>
+              <div class="result-label">голов КРС в хозяйстве</div>
+            </div>
+            <div class="result-card">
+              <div class="result-num accent-green">8</div>
+              <div class="result-label">региональных точек продаж</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: ПОЛНЫЙ ЦИКЛ -->
+      <section class="page" data-index="3" id="process">
+        <div class="section-content">
+          <div class="section-header reveal-3d">
+            <h2 class="section-title">ПОЛНЫЙ ЦИКЛ</h2>
+          </div>
+          <div class="process-steps reveal-3d">
+            <div class="step">
+              <div class="step-num">01</div>
+              <div class="step-icon">📊</div>
+              <h3 class="step-title">Анализ почвы</h3>
+              <p class="step-text">Полный агрохимический анализ до посева</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">02</div>
+              <div class="step-icon">🚜</div>
+              <h3 class="step-title">Посевная</h3>
+              <p class="step-text">Точное земледелие, сортовые семена</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">03</div>
+              <div class="step-icon">🌱</div>
+              <h3 class="step-title">Уход и орошение</h3>
+              <p class="step-text">Точное земледелие, сортовые семена</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">04</div>
+              <div class="step-icon">🏷️</div>
+              <h3 class="step-title">Сбор и продажа</h3>
+              <p class="step-text">Собственная логистика поставки</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: О НАС -->
+      <section class="page" data-index="4" id="about">
+        <div class="section-content">
+          <div class="section-header reveal-3d">
+            <h2 class="section-title">О ХОЛДИНГЕ</h2>
+            <p class="section-subtitle">Аграрная группа с 1997 года</p>
+          </div>
+          <div class="about-layout reveal-3d">
+            <div class="about-text">
+              <p>AGRO HOLDING — аграрная группа полного цикла, объединяющая растениеводство, животноводство и переработку под единым управлением.</p>
+              <p>Собственный парк оборудования, квалифицированные специалисты, контроль качества на каждом этапе.</p>
+              <div class="about-stats">
+                <div class="stat"><span class="stat-num accent-gold">25</span><span class="stat-label">лет работы</span></div>
+                <div class="stat"><span class="stat-num accent-green">30 000</span><span class="stat-label">га пашни</span></div>
+                <div class="stat"><span class="stat-num accent-gold">850</span><span class="stat-label">работников</span></div>
+                <div class="stat"><span class="stat-num accent-green">A+</span><span class="stat-label">рейтинг</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: ПАРТНЁРСТВО -->
+      <section class="page" data-index="5" id="contact">
+        <div class="section-content">
+          <div class="section-header reveal-3d">
+            <h2 class="section-title">ПАРТНЁРСТВО</h2>
+            <p class="section-subtitle">Работаем с оптовыми покупателями и дилерами</p>
+          </div>
+          <div class="contact-layout reveal-3d">
+            <div class="contact-info">
+              <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:+78615678901">+7 (861) 567-89-01</a></div>
+              <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:partner@agroholding.ru">partner@agroholding.ru</a></div>
+              <div class="contact-item"><span class="contact-icon">📍</span><span>Краснодар, ул. Полевая, 1</span></div>
+              <div class="contact-item"><span class="contact-icon">🕐</span><span>Пн–Пт: 8:00–18:00</span></div>
+            </div>
+            <form class="contact-form" id="contact-form">
+              <input type="text" placeholder="Ваше имя" required />
+              <input type="text" placeholder="Компания / ИНН" />
+              <input type="tel" placeholder="Телефон" required />
+              <select>
+                <option value="">Интерес к продукту...</option>
+                <option>Зерновые</option>
+                <option>Молочные продукты</option>
+                <option>Овощи и фрукты</option>
+                <option>Оптовые поставки</option>
+              </select>
+              <button type="submit" class="btn-primary" id="submit-btn">Стать партнёром</button>
+            </form>
+          </div>
+          <footer class="site-footer">
+            <p>© 2024 AGRO HOLDING. Все права защищены.</p>
+          </footer>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
