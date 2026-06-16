@@ -25,6 +25,8 @@ resize();
 const frames = new Array(TOTAL_FRAMES);
 let loadedCount = 0;
 let isReady = false;
+let preloaderDismissed = false;
+const PRELOADER_THRESHOLD = 10;
 
 function frameName(i) {
   return `${FRAME_DIR}/frame_${String(i + 1).padStart(6, '0')}.webp`;
@@ -42,16 +44,29 @@ async function loadAll() {
           loadedCount++;
           const pct = Math.round(loadedCount / TOTAL_FRAMES * 100);
           const bar = document.getElementById('progress-bar');
+          const realPct = Math.round(loadedCount / TOTAL_FRAMES * 100);
+          if (!preloaderDismissed && realPct >= PRELOADER_THRESHOLD) {
+            preloaderDismissed = true;
+            const loader = document.getElementById('loader');
+            if (loader) { loader.style.transition = 'opacity 0.8s'; loader.style.opacity = '0'; setTimeout(() => loader.style.display = 'none', 800); }
+            // Inject site-level loading bar
+            const siteBarEl = document.createElement('div');
+            siteBarEl.id = 'siteLoadingBar';
+            siteBarEl.innerHTML = '<div class="slb-track"><div class="slb-fill" id="slbFill"></div></div><span class="slb-text" id="siteLoadingText">Загрузка видео 0%</span>';
+            document.body.appendChild(siteBarEl);
+          }
+          // Update site loading bar
+          const slb = document.getElementById('slbFill');
+          const txt = document.getElementById('siteLoadingText');
+          if (slb) slb.style.width = realPct + '%';
+          if (txt) txt.textContent = 'Загрузка видео ' + Math.round(realPct) + '%';
+          if (realPct >= 100) {
+            const sbar = document.getElementById('siteLoadingBar');
+            if (sbar) { sbar.classList.add('done'); setTimeout(() => sbar.remove(), 800); }
+          }
           if (bar) bar.style.width = pct + '%';
           if (loadedCount === 1) { isReady = true; startAnim(); }
-          if (loadedCount === TOTAL_FRAMES) {
-            const loader = document.getElementById('loader');
-            if (loader) {
-              loader.style.transition = 'opacity 0.8s';
-              loader.style.opacity = '0';
-              setTimeout(() => loader.style.display = 'none', 800);
-            }
-          }
+          // Loader now dismissed at %
           resolve();
         };
         img.src = frameName(i);
